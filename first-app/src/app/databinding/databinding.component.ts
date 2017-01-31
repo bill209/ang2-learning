@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'fa-databinding',
@@ -12,4 +12,8 @@ export class DatabindingComponent {
   }
   stringInterpolation = 'string interpolation';
   numberInterpolation = 2;
+
+  onClicked_db(value: string) {
+    alert(value);
+  }
 }

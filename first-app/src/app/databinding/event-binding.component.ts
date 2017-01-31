@@ -1,15 +1,18 @@
-import { Component} from '@angular/core';
+import { Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'fa-event-binding',
   template: `
-    <button (click)="onClicked()">click me</button>
+    <button (click)="onClicked_eb()">click me now</button>
   `,
   styles: []
 })
 export class EventBindingComponent  {
-  onClicked(){
+  @Output() clickety = new EventEmitter<string>();
+
+  onClicked_eb(){
     alert('hi');
+    this.clickety.emit('it works')
   }
 
 }
