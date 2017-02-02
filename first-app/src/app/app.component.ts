@@ -3,11 +3,13 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-        <p>testing change</p>
-        <fa-databinding></fa-databinding>
+        <p>first app</p>
+        <fa-lifecycle *ngIf="!del"></fa-lifecycle>
+        <button (click)="del = true">click to delete</button>
 
 `
 })
 export class AppComponent {
   title = 'app works!!';
+  del = false;
 }
