@@ -35,7 +35,7 @@ export class LifecycleComponent implements OnInit, OnChanges, DoCheck, AfterCont
     console.log(this.boundContent)
   }
   ngAfterContentChecked(){
-    this.log('ngAfterContentChecked');
+    this.log('ngAfterContentCheckedz');
   }
   ngAfterViewInit(){
     this.log('ngAfterViewInit');
