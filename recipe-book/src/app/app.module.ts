@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AppComponent } from './app.component';
+import { RecipeBookAppComponent } from './recipe-book.component';
+import { HeaderComponent } from './header.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    RecipeBookAppComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -15,6 +17,6 @@ import { AppComponent } from './app.component';
     HttpModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [RecipeBookAppComponent]
 })
 export class AppModule { }
