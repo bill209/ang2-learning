@@ -1,0 +1,11 @@
+div {
+    width: 200px;
+    height: 100px;
+}
+.border {
+    border: solid 1px rebeccapurple;
+}
+
+.background {
+    background-color: #ddd;
+}
