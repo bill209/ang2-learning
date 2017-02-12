@@ -1,8 +1,20 @@
-<h1>attribute directives</h1>
-<h2>ngClass / ngStyle</h2>
-<div [ngClass]="{border: true, background: true }"></div>
-<div [class.border]="true"></div>
+<div class="ad">
+	<h1>attribute directives</h1>
+	<h2>ngClass / ngStyle</h2>
+	<div [ngClass]="{border: true, background: true }"></div>
+	<div [class.border]="true"></div>
+</div>
 
 <hr>
 
 <div [highlight]="'blue'" [defaultColor]="'pink'">some text</div>
+
+<hr>
+
+<h1>structural directives</h1>
+
+<div class="sd">
+    <h2>*ngIf</h2>
+    <button (click)="onSwitch()">switch</button>
+    <p *ngIf="swatch">conditional text {{swatch}}</p>
+</div>

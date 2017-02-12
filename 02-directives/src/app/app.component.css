@@ -1,6 +1,19 @@
 div {
     width: 200px;
     height: 100px;
+    margin-left: 20px;
+}
+
+hr {
+    clear: both;
+}
+
+.ad {
+    width: 500px;
+}
+
+.ad div {
+    float: left;
 }
 .border {
     border: solid 1px rebeccapurple;
