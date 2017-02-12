@@ -1,4 +1,4 @@
-import { Directive, HostListener, HostBinding, Input } from '@angular/core';
+import { Directive, HostListener, HostBinding, Input, OnInit } from '@angular/core';
 
 @Directive({
   selector: '[highlight]'
@@ -17,13 +17,20 @@ export class HighlightDirective {
   }
 
   @Input() defaultColor = 'yellow';
-  @Input('hilite') hightlightColor = 'green';
+  @Input('highlight') hightlightColor = 'green';
+  // or
+  // @Input() hightlight = 'green';
 
-  private bgcolor = this.defaultColor;
+
+  private bgcolor: string;
 
   constructor() {
     // this.elementRef.nativeElement.style.backgroundColor = '#fdd';
     // this.renderer.setElementStyle(this.elementRef.nativeElement, 'backgroundColor', 'pink');
+  }
+
+  ngOnInit(){
+   this.bgcolor = this.defaultColor;
   }
 
 }
