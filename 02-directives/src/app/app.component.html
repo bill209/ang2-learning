@@ -3,11 +3,8 @@
 	<h2>ngClass / ngStyle</h2>
 	<div [ngClass]="{border: true, background: true }"></div>
 	<div [class.border]="true"></div>
+	<div [highlight]="'blue'" [defaultColor]="'pink'">some text</div>
 </div>
-
-<hr>
-
-<div [highlight]="'blue'" [defaultColor]="'pink'">some text</div>
 
 <hr>
 
@@ -24,4 +21,15 @@
 	<ul>
 		<li *ngFor="let color of colors; let i = index">{{i + 1}}. {{color}}</li>
 	</ul>
+</div>
+
+<div class="">
+	<h2>ngSwitch</h2>
+	<button (click)="switcheroo = switcheroo + 5">switcheroo: {{switcheroo}}</button>
+	<div [ngSwitch]="switcheroo">
+		<p *ngSwitchCase="10">10</p>
+		<p *ngSwitchCase="20">20</p>
+		<p *ngSwitchCase="30">30</p>
+		<p *ngSwitchDefault>#5</p>
+	</div>
 </div>

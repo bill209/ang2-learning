@@ -1,7 +1,5 @@
 div {
-    width: 200px;
-    height: 100px;
-    margin-left: 20px;
+
 }
 
 hr {
@@ -14,6 +12,9 @@ hr {
 
 .ad div {
     float: left;
+    width: 200px;
+    height: 100px;
+    margin: 20px;
 }
 .border {
     border: solid 1px rebeccapurple;

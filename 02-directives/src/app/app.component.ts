@@ -9,6 +9,7 @@ export class AppComponent {
   private swatch = true;
 
   private colors = ['red', 'orange', 'yellow', 'green', 'blue' ];
+  private switcheroo = 10;
 
   onSwitch(){
    this.swatch = !this.swatch;
