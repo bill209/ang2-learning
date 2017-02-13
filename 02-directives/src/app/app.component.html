@@ -1,35 +1,55 @@
-<div class="ad">
-	<h1>attribute directives</h1>
-	<h2>ngClass / ngStyle</h2>
-	<div [ngClass]="{border: true, background: true }"></div>
-	<div [class.border]="true"></div>
-	<div [highlight]="'blue'" [defaultColor]="'pink'">some text</div>
-</div>
-
-<hr>
-
-<h1>structural directives</h1>
-
-<div class="sd">
-    <h2>*ngIf</h2>
-    <button (click)="onSwitch()">switch</button>
-    <p *ngIf="swatch">conditional text {{swatch}}</p>
-</div>
-<hr>
-<div class="sd">
-	<h2>*ngFor</h2>
-	<ul>
-		<li *ngFor="let color of colors; let i = index">{{i + 1}}. {{color}}</li>
-	</ul>
-</div>
-
-<div class="">
-	<h2>ngSwitch</h2>
-	<button (click)="switcheroo = switcheroo + 5">switcheroo: {{switcheroo}}</button>
-	<div [ngSwitch]="switcheroo">
-		<p *ngSwitchCase="10">10</p>
-		<p *ngSwitchCase="20">20</p>
-		<p *ngSwitchCase="30">30</p>
-		<p *ngSwitchDefault>#5</p>
+<body>
+	<div class="ad">
+		<h1>attribute directives</h1>
+		<h2>ngClass / ngStyle</h2>
+		<div [ngClass]="{border: true, background: true }"></div>
+		<div [class.border]="true"></div>
+		<div [highlight]="'blue'" [defaultColor]="'pink'">some text</div>
 	</div>
-</div>
+
+	<hr>
+
+	<h1>structural directives</h1>
+
+	<div class="sd">
+		<h2>*ngIf</h2>
+		<button (click)="onSwitch()">switch</button>
+		<!--  ang converts top example to bottom example-->
+		<span *ngIf="swatch"><b>beautified version</b> </span>
+		<span> or </span>
+		<template [ngIf]="swatch">
+			<span><b>uglier version</b></span>
+		</template>
+	</div>
+
+	<hr>
+
+	<div class="sd">
+		<h2>*ngFor</h2>
+		<ul>
+			<li *ngFor="let color of colors; let i = index">{{i + 1}}. {{color}}</li>
+		</ul>
+	</div>
+
+	<div class="">
+		<h2>ngSwitch</h2>
+		<button (click)="switcheroo = switcheroo + 5">switcheroo: {{switcheroo}}</button>
+
+		<div [ngSwitch]="switcheroo">
+			<span *ngSwitchCase="10">10</span>
+			<span *ngSwitchCase="20">20</span>
+			<span *ngSwitchCase="30">30</span>
+			<span *ngSwitchDefault>#5</span>
+			<span> - sweet code</span>
+		</div>
+
+		<p [ngSwitch]="switcheroo">
+			<template [ngSwitchCase]="10">10</template>
+			<template [ngSwitchCase]="20">20</template>
+			<template [ngSwitchCase]="30">30</template>
+			<template ngSwitchDefault>#5</template>
+			<span> - de-sugarfied</span>
+		</p>
+
+	</div>
+</body>
