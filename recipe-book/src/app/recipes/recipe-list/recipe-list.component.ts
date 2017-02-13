@@ -7,10 +7,12 @@ import { Recipe } from '../recipe';
 })
 export class RecipeListComponent implements OnInit {
 
-  recipes: Recipe[] = [];
-  @Output()recipeSelected =  new EventEmitter<Recipe>();
+  recipes: Recipe[] = [
+    new Recipe('Schnitzel', 'Very tasty', 'http://www.daringgourmet.com/wp-content/uploads/2014/03/Schnitzel-7_edited.jpg', []),
+    new Recipe('Summer Salad', 'Okayish', 'http://ohmyveggies.com/wp-content/uploads/2013/06/the_perfect_summer_salad.jpg', [])
+  ];
 
-  recipe = new Recipe('dummy','dummy','../assets/Crash_Test_Dummy_Female.png')
+  @Output()recipeSelected =  new EventEmitter<Recipe>();
 
   constructor() { }
 
