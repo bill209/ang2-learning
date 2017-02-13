@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   private swatch = true;
 
+  private colors = ['red', 'orange', 'yellow', 'green', 'blue' ];
+
   onSwitch(){
    this.swatch = !this.swatch;
   }

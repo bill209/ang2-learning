@@ -18,3 +18,10 @@
     <button (click)="onSwitch()">switch</button>
     <p *ngIf="swatch">conditional text {{swatch}}</p>
 </div>
+<hr>
+<div class="sd">
+	<h2>*ngFor</h2>
+	<ul>
+		<li *ngFor="let color of colors; let i = index">{{i + 1}}. {{color}}</li>
+	</ul>
+</div>
