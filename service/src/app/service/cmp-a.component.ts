@@ -22,7 +22,7 @@ import { DataService } from './data.service';
         <p>{{value}}</p>
     </div>
   `,
-    providers: [LogService]
+    providers: []
 })
 export class CmpAComponent {
     value = '';

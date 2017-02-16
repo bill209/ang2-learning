@@ -23,7 +23,7 @@ import { DataService } from './data.service';
     </div>
 
   `,
-    providers: [LogService]
+    providers: []
 })
 export class CmpBComponent {
     value = '';
