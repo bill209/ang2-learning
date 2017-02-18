@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { HeaderComponent } from './header.component';
 import { RecipesComponent } from './recipes';
 
-import { RecipeService } from './recipes/recipe.service';
+import { RecipeService } from './recipes';
 
 @Component({
   selector: 'rb-root',

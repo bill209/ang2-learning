@@ -1,2 +1,2 @@
 export { RecipesComponent } from './recipes.component';
-// export { RecipesService } from './recipes.service';
+export { RecipeService } from './recipe.service';
