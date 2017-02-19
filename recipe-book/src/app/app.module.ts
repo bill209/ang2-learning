@@ -12,6 +12,7 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingListAddComponent } from './shopping-list/shopping-list-add.component';
 import { DropdownDirective } from './dropdown.directive';
+import { ShoppingListService } from './shopping-list';
 import { Recipe } from './recipes/recipe';
 import { RecipeService } from './recipes/recipe.service';
 
@@ -32,7 +33,7 @@ import { RecipeService } from './recipes/recipe.service';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [ShoppingListService],
   bootstrap: [RecipeBookAppComponent]
 })
 export class AppModule { }
