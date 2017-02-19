@@ -1,17 +1,36 @@
 import { Component, OnDestroy } from '@angular/core';
-import {Router} from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-user-component',
   template: `
       <h1>User Component</h1>
       <button (click)="goHome()">go home</button>
+      <span>id: {{id}}</span>
     `
 })
-export class UserComponent {
+export class UserComponent implements OnDestroy {
 
-  constructor(private router: Router){}
+	// performs garbage collection on observables
+	private subscription: Subscription;
+
+
+	id: string;
+
+  constructor(private router: Router, private activatedRoute: ActivatedRoute){
+
+  	// this.id = activatedRoute.snapshot.params['id'];
+  	this.subscription = activatedRoute.params.subscribe(
+			(p: any) => this.id = p['id']
+		)
+	}
+
   goHome(){
 		this.router.navigate(['']);
   }
+
+  ngOnDestroy(){
+  	this.subscription.unsubscribe();
+	}
 }
