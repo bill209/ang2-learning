@@ -27,7 +27,7 @@ export class UserComponent implements OnDestroy {
 	}
 
   goHome(){
-		this.router.navigate(['']);
+		this.router.navigate([''], { queryParams: { 'analytics' : 100 }});
   }
 
   ngOnDestroy(){
