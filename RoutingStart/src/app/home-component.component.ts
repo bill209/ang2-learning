@@ -10,6 +10,7 @@ import {ActivatedRoute} from "@angular/router";
     </h1>
     <hr/>
     <span>analytics: {{param}}</span>
+    <!--<span>banality: {{param}}</span>-->
   `,
   styles: []
 })
@@ -17,10 +18,12 @@ export class HomeComponent implements OnDestroy {
   private subscription: Subscription;
 
   param: string;
+  // param2: string;
 
   constructor(private route: ActivatedRoute) {
     this.subscription = route.queryParams.subscribe(
       (queryParam: any) => this.param = queryParam['analytics']
+      // (queryParam: any) => this.param2 = queryParam['banality']
     );
   }
 
