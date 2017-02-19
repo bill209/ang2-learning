@@ -1,12 +1,14 @@
 <div class="container">
-    <div class="row">
-        <div class="col-xs-10">
-            <h1>Hello World!</h1>
-            <hr/>
-                <a [routerLink]="['']">home</a>
-                <a [routerLink]="['user']">user</a>
-            <hr/>
-            <router-outlet></router-outlet>
-        </div>
-    </div>
+	<div class="row">
+		<div class="col-xs-10">
+			<h1>Hello World!</h1>
+			<hr/>
+				<a [routerLink]="['']">home</a> |
+				<!-- (input)="0" is dummy but causes angular to re-run change detection (update with each keystroke) -->
+				<input type="text" #pid (input)="0">
+				<a [routerLink]="['user', pid.value]">user</a>
+			<hr/>
+			<router-outlet></router-outlet>
+		</div>
+	</div>
 </div>
