@@ -1,4 +1,5 @@
-
+<h3>hi</h3>
+<p>::{{items}}</p>
 <div class="row">
   <div class="col-xs-10">
     <rb-shopping-list-add></rb-shopping-list-add>
@@ -6,7 +7,7 @@
     <ul class="list-group">
       <a class="list-group-item"
          style="cursor: pointer"
-         *ngFor="let item of items"></a>
+         *ngFor="let item of items">{{item.name}} ({{item.amount}})</a>
     </ul>
   </div>
 </div>
