@@ -3,13 +3,17 @@
 		<div class="col-xs-10">
 			<h1>Hello World!</h1>
 			<hr/>
+			<div routerLinkActive="active"
+				 [routerLinkActiveOptions]="{ exact: true }">
 				<a [routerLink]="['']"
 				   [queryParams]="{banality: 'boo'}"
-					[fragment]="'section1'">home</a> |
+				   [fragment]="'section1'">home></a>
 				<!-- (input)="0" is dummy but causes angular to re-run change detection (update with each keystroke) -->
 				<input type="text" #pid (input)="0">
+			</div>
+
 				<a [routerLink]="['user', pid.value]"
-				   [preserveQueryParams]="true">user</a>
+				   routerLinkActive="active">user</a>
 			<hr/>
 			<router-outlet></router-outlet>
 		</div>
