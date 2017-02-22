@@ -4,8 +4,7 @@ import { RecipeService } from '../';
 
 @Component({
   selector: 'rb-recipe-list',
-  templateUrl: './recipe-list.component.html',
-	providers: [ RecipeService ]
+  templateUrl: './recipe-list.component.html'
 })
 export class RecipeListComponent implements OnInit {
 
@@ -16,8 +15,4 @@ export class RecipeListComponent implements OnInit {
   ngOnInit() {
   	this.recipes = this.recipeService.getRecipes();
   }
-
-  onSelected(recipe: Recipe){
-  }
-
 }
