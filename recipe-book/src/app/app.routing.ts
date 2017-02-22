@@ -11,4 +11,4 @@ const APP_ROUTES: Routes = [
 	{ path: 'recipes', component: RecipesComponent }
 ]
 
-export const ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);
+export const routing: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);
