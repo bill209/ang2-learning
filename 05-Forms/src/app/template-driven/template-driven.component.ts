@@ -5,4 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: 'template-driven.component.html'
 })
 export class TemplateDrivenComponent {
+  onSubmit(){
+    console.log('hi');
+  }
 }

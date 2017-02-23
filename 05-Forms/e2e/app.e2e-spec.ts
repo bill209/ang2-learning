@@ -1,10 +1,10 @@
-import { FormsPage } from './app.po';
+import { CompleteGuidePage } from './app.po';
 
-describe('forms App', function() {
-  let page: FormsPage;
+describe('complete-guide App', function() {
+  let page: CompleteGuidePage;
 
   beforeEach(() => {
-    page = new FormsPage();
+    page = new CompleteGuidePage();
   });
 
   it('should display message saying app works', () => {
