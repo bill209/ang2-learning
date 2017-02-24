@@ -16,4 +16,8 @@ export class DataDrivenComponent {
         });
     }
 
+    onSubmit() {
+    	console.log(this.myForm);
+	}
+
 }
