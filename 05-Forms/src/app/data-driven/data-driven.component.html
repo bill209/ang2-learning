@@ -14,6 +14,7 @@
                    class="form-control"
                    formControlName="email"
                    id="email">
+            <p *ngIf="myForm.controls['email'].invalid && myForm.controls['email'].dirty">boo-boo</p>
         </div>
     </div>
 
@@ -36,5 +37,5 @@
         </div>
     </div>
     <button type="button" class="btn btn-default">Add Hobby</button>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">Submit</button>
 </form>
