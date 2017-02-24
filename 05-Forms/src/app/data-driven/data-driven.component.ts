@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FormGroup, FormControl} from "@angular/forms";
+import {FormGroup, FormControl, Validators} from "@angular/forms";
 
 @Component({
     selector: 'data-driven',
@@ -8,11 +8,13 @@ import {FormGroup, FormControl} from "@angular/forms";
 export class DataDrivenComponent {
     myForm: FormGroup;
 
-    constructor(){
+	private emailRegex = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
+
+	constructor(){
         this.myForm = new FormGroup({
-            username: new FormControl(),
-            email: new FormControl(),
-            password: new FormControl()
+            username: new FormControl('bob', Validators.required),
+            email: new FormControl('', [Validators.required, Validators.pattern(this.emailRegex)]),
+            password: new FormControl('', Validators.required)
         });
     }
 
