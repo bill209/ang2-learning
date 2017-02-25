@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FormGroup, FormControl, Validators, FormArray} from "@angular/forms";
+import {FormGroup, FormControl, Validators, FormArray, FormBuilder} from "@angular/forms";
 
 @Component({
     selector: 'data-driven',
@@ -12,7 +12,9 @@ export class DataDrivenComponent {
 
 	genders = [ 'male', 'female' ];
 
-	constructor(){
+	constructor(private formBuilder: FormBuilder){
+
+/*
         this.myForm = new FormGroup({
         	userdata: new FormGroup({
 				username: new FormControl('bob', Validators.required),
@@ -24,6 +26,24 @@ export class DataDrivenComponent {
 				new FormControl('cooking')
 			])
         });
+*/
+
+		// using FormBuilder to build a form
+		this.myForm = formBuilder.group({
+			userdata: formBuilder.group({
+				username: ['bob', Validators.required],
+				email: ['', [
+					Validators.required,
+					Validators.pattern(this.emailRegex)
+				]],
+			}),
+			password: ['', Validators.required],
+			gender: ['female'],
+			hobbies: formBuilder.array([
+				['cooking']
+			])
+		})
+
     }
 
     onAddHobby(){
