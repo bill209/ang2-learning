@@ -1,6 +1,6 @@
 <h1>Data Driven</h1>
 <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-    <div>
+    <div formGroupName="userdata">
         <div class="form-group">
             <label for="username">Username</label>
             <input type="text"
@@ -14,7 +14,8 @@
                    class="form-control"
                    formControlName="email"
                    id="email">
-            <p *ngIf="myForm.controls['email'].invalid && myForm.controls['email'].dirty">boo-boo</p>
+           <!--<p>::{{JSON.stringify(myForm.controls.userdata)}}</p>-->
+            <p *ngIf="myForm.get('userdata.email').invalid && myForm.controls.userdata.controls.email.dirty">boo-boo</p>
         </div>
     </div>
 
@@ -25,8 +26,11 @@
                formControlName="password"
                id="password">
     </div>
-    <div class="radio">
+    <div class="radio" *ngFor="let g of genders">
         <label>
+            <input type="radio"
+                   formControlName="gender"
+                   [value]="g">{{g}}
         </label>
     </div>
     <div>

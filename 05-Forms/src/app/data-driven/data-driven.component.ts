@@ -10,11 +10,16 @@ export class DataDrivenComponent {
 
 	private emailRegex = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
 
+	genders = [ 'male', 'female' ];
+
 	constructor(){
         this.myForm = new FormGroup({
-            username: new FormControl('bob', Validators.required),
-            email: new FormControl('', [Validators.required, Validators.pattern(this.emailRegex)]),
-            password: new FormControl('', Validators.required)
+        	userdata: new FormGroup({
+				username: new FormControl('bob', Validators.required),
+				email: new FormControl('', [Validators.required, Validators.pattern(this.emailRegex)]),
+			}),
+            password: new FormControl('', Validators.required),
+			gender: new FormControl('female')
         });
     }
 
