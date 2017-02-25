@@ -1,45 +1,47 @@
 <h1>Data Driven</h1>
 <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-    <div formGroupName="userdata">
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text"
-                   class="form-control"
-                   formControlName="username"
-                   id="username">
-        </div>
-        <div class="form-group">
-            <label for="email">E-Mail</label>
-            <input type="text"
-                   class="form-control"
-                   formControlName="email"
-                   id="email">
-           <!--<p>::{{JSON.stringify(myForm.controls.userdata)}}</p>-->
-            <p *ngIf="myForm.get('userdata.email').invalid && myForm.controls.userdata.controls.email.dirty">boo-boo</p>
-        </div>
-    </div>
+	<div formGroupName="userdata">
+		<div class="form-group">
+			<label for="username">Username</label>
+			<input type="text"
+						 class="form-control"
+						 formControlName="username"
+						 id="username">
+		</div>
+		<div class="form-group">
+			<label for="email">E-Mail</label>
+			<input type="text"
+						 class="form-control"
+						 formControlName="email"
+						 id="email">
+			<!--<p>::{{JSON.stringify(myForm.controls.userdata)}}</p>-->
+			<p *ngIf="myForm.get('userdata.email').invalid && myForm.controls.userdata.controls.email.dirty">boo-boo</p>
+		</div>
+	</div>
 
-    <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password"
-               class="form-control"
-               formControlName="password"
-               id="password">
-    </div>
-    <div class="radio" *ngFor="let g of genders">
-        <label>
-            <input type="radio"
-                   formControlName="gender"
-                   [value]="g">{{g}}
-        </label>
-    </div>
-    <div>
-        <h3>Hobbies</h3>
-        <div class="form-group">
-            <input type="text"
-                   class="form-control">
-        </div>
-    </div>
-    <button type="button" class="btn btn-default">Add Hobby</button>
-    <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">Submit</button>
+	<div class="form-group">
+		<label for="password">Password</label>
+		<input type="password"
+					 class="form-control"
+					 formControlName="password"
+					 id="password">
+	</div>
+	<div class="radio" *ngFor="let g of genders">
+		<label>
+			<input type="radio"
+						 formControlName="gender"
+						 [value]="g">{{g}}
+		</label>
+	</div>
+	<div formArrayName="hobbies">
+		<h3>Hobbies</h3>
+		<div class="form-group"
+		*ngFor="let hobby of myForm.controls['hobbies'].controls; let i = index">
+			<input type="text"
+						 class="form-control"
+						 formControlName="{{i}}">
+		</div>
+	</div>
+	<button type="button" class="btn btn-default" (click)="onAddHobby()">Add Hobby</button>
+	<button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">Submit</button>
 </form>
