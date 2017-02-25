@@ -31,7 +31,7 @@ export class DataDrivenComponent {
 		// using FormBuilder to build a form
 		this.myForm = formBuilder.group({
 			userdata: formBuilder.group({
-				username: ['bob', Validators.required],
+				username: ['bob', [Validators.required, this.isEven]],
 				email: ['', [
 					Validators.required,
 					Validators.pattern(this.emailRegex)
@@ -48,10 +48,27 @@ export class DataDrivenComponent {
 
     onAddHobby(){
 		(<FormArray>this.myForm.controls['hobbies']).push(new FormControl(''));
+		console.log("this.myForm.controls",this.myForm.controls);
+		
     }
 
     onSubmit() {
     	console.log(this.myForm);
 	}
+
+	// example of validator returning a boolean
+	// isEven(control: FormControl): boolean{
+
+	isEven(control: FormControl): {[s:string]:string}{
+		// a failed validation returns a boolean (as defined in line above)
+		// a succesful validate returns nothing or null
+		if(control.value % 2 == 0) {
+			return null;
+		} else {
+			// return any boolean
+			// return false;
+			return {'msg': 'you are odd'}
+		}
+	};
 
 }

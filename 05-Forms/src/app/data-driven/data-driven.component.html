@@ -7,6 +7,7 @@
 						 class="form-control"
 						 formControlName="username"
 						 id="username">
+			<p *ngIf="myForm.get('userdata.username').invalid">{{myForm.get('userdata.username').errors.msg}}</p>
 		</div>
 		<div class="form-group">
 			<label for="email">E-Mail</label>
