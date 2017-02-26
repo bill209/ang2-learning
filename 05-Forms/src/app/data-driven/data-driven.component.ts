@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {FormGroup, FormControl, Validators, FormArray, FormBuilder} from "@angular/forms";
+import {Observable} from "rxjs/Observable";
 
 @Component({
     selector: 'data-driven',
@@ -31,7 +32,7 @@ export class DataDrivenComponent {
 		// using FormBuilder to build a form
 		this.myForm = formBuilder.group({
 			userdata: formBuilder.group({
-				username: ['bob', [Validators.required, this.isEven]],
+				username: ['bob', [Validators.required],this.asyncIsEven],
 				email: ['', [
 					Validators.required,
 					Validators.pattern(this.emailRegex)
@@ -70,5 +71,23 @@ export class DataDrivenComponent {
 			return {'msg': 'you are odd'}
 		}
 	};
+
+	asyncIsEven(control: FormControl): Promise<any> | Observable<any>{
+		const promise = new Promise<any>(
+			(resolve, reject) => {
+				setTimeout(() => {
+
+					if(control.value % 2 == 0) {
+						resolve(null);
+					} else {
+						// return any boolean
+						// return false;
+						resolve({'msg': 'you are odd'});
+					}
+				},1500);
+			}
+		);
+		return promise;
+	}
 
 }
