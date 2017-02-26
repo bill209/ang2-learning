@@ -63,6 +63,10 @@ export class DataDrivenComponent {
 		console.log(this.myForm);
 	}
 
+	resetForm() {
+		this.myForm.reset();
+	}
+
 	// example of validator returning a boolean
 	// isEven(control: FormControl): boolean{
 

@@ -2,7 +2,7 @@
 <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
 	<div formGroupName="userdata">
 		<div class="form-group">
-			<label for="username">Usernamez</label>
+			<label for="username">Username</label>
 			<input type="text"
 						 class="form-control"
 						 formControlName="username"
@@ -45,4 +45,5 @@
 	</div>
 	<button type="button" class="btn btn-default" (click)="onAddHobby()">Add Hobby</button>
 	<button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">Submit</button>
+	<button type="button" class="btn" (click)="resetForm()">reset form</button>
 </form>
