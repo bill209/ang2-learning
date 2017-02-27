@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {Component, Input, OnChanges, Output, EventEmitter} from '@angular/core';
 import {Ingredient} from "app/shared/ingredient";
 import {ShoppingListService} from "app/shopping-list/shopping-list.service";
 
@@ -10,12 +10,11 @@ export class ShoppingListAddComponent implements OnChanges {
 
   isAdd = null;
   @Input() item: Ingredient;
+	@Output() cleared = new EventEmitter();
 
   constructor(private sls: ShoppingListService) { }
 
   ngOnChanges(changes): void {
-    console.log("this.itemzzzz",this.item);
-
     if(changes.item.currentValue === null){
       this.isAdd = true;
       this.item = { name : null, amount : null };
@@ -25,8 +24,6 @@ export class ShoppingListAddComponent implements OnChanges {
   }
 
   onSubmit(ingredient: Ingredient){
-    console.log("ingredient",ingredient);
-    console.log("this.isAdd",this.isAdd);
     const newIngredient = new Ingredient(ingredient.name, ingredient.amount);
 
     // add a new ingredient
@@ -35,7 +32,19 @@ export class ShoppingListAddComponent implements OnChanges {
     } else {
       // edit an ingredient
       this.sls.editItem(this.item, newIngredient);
+      this.onClear();
     }
+  }
+
+  onDelete(){
+    this.sls.deleteItem(this.item);
+    this.onClear();
+  }
+
+  onClear(){
+    this.item = { name : null, amount : null };
+    this.isAdd = true;
+	  this.cleared.emit(null);
   }
 
 }

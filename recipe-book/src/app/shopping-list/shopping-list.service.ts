@@ -18,11 +18,11 @@ export class ShoppingListService {
   }
 
   editItem(oldItem: Ingredient, newItem: Ingredient){
-    console.log("oldItem",oldItem);
-    
     this.items[this.items.indexOf(oldItem)] = newItem;
-    console.log("this.items",this.items);
-    
+  }
+
+  deleteItem(item: Ingredient){
+    this.items.splice(this.items.indexOf(item),1);
   }
 
 }
