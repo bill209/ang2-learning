@@ -14,8 +14,8 @@ export class ShoppingListAddComponent implements OnChanges {
   constructor(private sls: ShoppingListService) { }
 
   ngOnChanges(changes): void {
-    console.log("changes",changes);
-    
+    console.log("this.itemzzzz",this.item);
+
     if(changes.item.currentValue === null){
       this.isAdd = true;
       this.item = { name : null, amount : null };
@@ -25,11 +25,16 @@ export class ShoppingListAddComponent implements OnChanges {
   }
 
   onSubmit(ingredient: Ingredient){
-    if(this.isAdd){
-      this.item = new Ingredient(ingredient.name, ingredient.amount);
-      this.sls.addItem(this.item);
-    } else {
+    console.log("ingredient",ingredient);
+    console.log("this.isAdd",this.isAdd);
+    const newIngredient = new Ingredient(ingredient.name, ingredient.amount);
 
+    // add a new ingredient
+    if(this.isAdd){
+      this.sls.addItem(newIngredient);
+    } else {
+      // edit an ingredient
+      this.sls.editItem(this.item, newIngredient);
     }
   }
 
