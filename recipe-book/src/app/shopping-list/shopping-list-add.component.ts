@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, OnChanges} from '@angular/core';
+import {Component, OnInit, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {Ingredient} from "app/shared/ingredient";
 import {ShoppingListService} from "app/shopping-list/shopping-list.service";
 
@@ -13,10 +13,10 @@ export class ShoppingListAddComponent implements OnChanges {
 
   constructor(private sls: ShoppingListService) { }
 
-  ngOnChanges(change) {
-    console.log("change",change);
+  ngOnChanges(changes): void {
+    console.log("changes",changes);
     
-    if(change.item.currentValue === null){
+    if(changes.item.currentValue === null){
       this.isAdd = true;
     } else {
       this.isAdd = false;
