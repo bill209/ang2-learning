@@ -39,6 +39,7 @@ import { RecipeStartComponent } from './recipes/recipe-start.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+    ReactiveFormsModule,
     routing
   ],
   providers: [ShoppingListService],
