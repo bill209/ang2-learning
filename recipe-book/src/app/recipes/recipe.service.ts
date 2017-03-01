@@ -5,6 +5,7 @@ import { Ingredient } from "../shared";
 
 @Injectable()
 export class RecipeService {
+
   private recipes: Recipe[] = [
     new Recipe('Schnitzel', 'Very tasty', '/assets/Schnitzel-7_edited.jpg', [
       new Ingredient('French Fries', 2),
@@ -26,4 +27,15 @@ export class RecipeService {
   deleteRecipe(recipe: Recipe){
     this.recipes.splice(this.recipes.indexOf(recipe),1)
   }
+
+  addRecipe(recipe: Recipe){
+    this.recipes.push(recipe);
+  }
+
+  editRecipe(oldRecipe: Recipe, newRecipe: Recipe) {
+    this.recipes[this.recipes.indexOf(oldRecipe)] = newRecipe;
+    // this.deleteRecipe(oldRecipe);
+    // this.addRecipe(newRecipe);
+  }
+
 }
