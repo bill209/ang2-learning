@@ -38,4 +38,12 @@ export class RecipeService {
     // this.addRecipe(newRecipe);
   }
 
+//   deleteIngredient(recipeIdx: number, ingredientIdx){
+//     this.recipes[recipeIdx].ingredients.splice(ingredientIdx,1);
+//   }
+
+  addIngredient(recipeIdx: number, name: string, amount: number){
+    this.recipes[recipeIdx].ingredients.push({ 'name' : name, 'amount' : amount});
+  }
+
 }

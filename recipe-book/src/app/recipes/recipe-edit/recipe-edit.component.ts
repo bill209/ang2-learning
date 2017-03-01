@@ -10,9 +10,9 @@ import {FormArray, FormGroup, FormControl, Validators, FormBuilder} from "@angul
 	templateUrl: './recipe-edit.component.html'
 })
 export class RecipeEditComponent implements OnInit, OnDestroy {
-	private recipeIdx:number;
-	private subscription:Subscription;
-	private recipe:Recipe;
+	private recipeIdx: number;
+	private subscription: Subscription;
+	private recipe: Recipe;
 	private isNew = true;
 	recipeForm: FormGroup;
 
@@ -54,6 +54,24 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
 
 	onCancel() {
 		this.navigateBack();
+	}
+
+	onRemoveIngredient(i: number) {
+		// this.recipeService.deleteIngredient(this.recipeIdx, i);
+		(<FormArray>this.recipeForm.controls['ingredients']).removeAt(i);
+	}
+
+	onAddIngredient(name: string, amount: string){
+		// this.recipeService.addIngredient(this.recipeIdx, name, +amount);
+		(<FormArray>this.recipeForm.controls['ingredients']).push(
+			new FormGroup({
+				name: new FormControl(name, Validators.required),
+				amount: new FormControl(amount, [
+					Validators.required,
+					Validators.pattern("\\d+")
+				])
+			})
+		)
 	}
 
 	navigateBack() {
