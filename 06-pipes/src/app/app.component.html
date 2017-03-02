@@ -6,4 +6,8 @@
 	<p>{{infamy | date:"MM/dd/yyyy"}}</p>
 	<p>{{title | slice:4:8}}</p>
 	<p>{{title | uppercase | slice:4:8}}</p>
+
+	<h3>custom pipes</h3>
+	<input type="text" #nbr (keyup)="0">
+	<span>result: {{nbr.value | myDouble}}</span>
 </div>
