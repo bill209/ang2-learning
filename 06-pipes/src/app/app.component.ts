@@ -5,10 +5,12 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styles: [`
     .pipes { padding: 20px; margin: 20px; color: rebeccapurple }
+    li { list-style: none; }
   `]
 })
 export class AppComponent {
   title = 'app works!';
   infamy = new Date(1941, 11, 7);
   value = 3;
+  values = ['alpha', 'bravo', 'charlie', 'delta', 'echo', 'foxtrot', 'golf', 'hotel'];
 }

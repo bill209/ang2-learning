@@ -10,4 +10,11 @@
 	<h3>custom pipes</h3>
 	<input type="text" #nbr (keyup)="0">
 	<span>result: {{nbr.value | myDouble}}</span>
+	<br/>
+	<p>NATO phonetic alphabet</p>
+	<p>filter list</p>
+	<input type="text" #f (keyup)="0">
+	<ul>
+		<li *ngFor="let item of values">{{f.value}} : {{item | filter: f.value}}</li>
+	</ul>
 </div>
