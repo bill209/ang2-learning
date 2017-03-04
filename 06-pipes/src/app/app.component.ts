@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
   `]
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'pipes app works!';
   infamy = new Date(1941, 11, 7);
   value = 3;
   values = ['alpha', 'bravo', 'charlie', 'delta', 'echo', 'foxtrot', 'golf', 'hotel'];
